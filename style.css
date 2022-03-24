@@ -1,0 +1,108 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  min-height: 110vh;
+}
+
+h3 {
+  text-align: center;
+}
+
+.accordion {
+  padding: 0 15px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.accordion .accordion-item:not(:last-of-type) {
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.accordion .accordion-item .accordion-question {
+  display: block;
+  background-color: inherit;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  position: relative;
+  padding: 15px 30px 15px 0;
+  cursor: pointer;
+}
+
+.accordion .accordion-item .accordion-question::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  -webkit-transform: translateY(-50%) scale(1, -1);
+          transform: translateY(-50%) scale(1, -1);
+  right: 15px;
+  top: 50%;
+  background-image: url(/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+
+.accordion .accordion-item .accordion-answer {
+  display: none;
+  height: 0;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  opacity: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.accordion .accordion-item .accordion-answer::after {
+  content: "";
+  display: block;
+  padding-bottom: 15px;
+}
+
+.accordion .accordion-item.check-answer-size {
+  position: relative;
+}
+
+.accordion .accordion-item.check-answer-size .accordion-answer {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  display: block;
+}
+
+.accordion .accordion-item.show-answer .accordion-answer {
+  opacity: 1;
+  position: static;
+  display: block;
+  overflow: hidden;
+}
+
+.accordion .accordion-item.show-answer .accordion-question::after, .accordion .accordion-item.answer-displayed:not(.hide-answer) .accordion-question::after {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.accordion .accordion-item.answer-displayed .accordion-answer {
+  height: auto;
+  opacity: 1;
+  position: static;
+  display: block;
+}
+
+.accordion .accordion-item.hide-answer .accordion-answer {
+  opacity: 0;
+  overflow: hidden;
+}
+/*# sourceMappingURL=style.css.map */

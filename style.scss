@@ -1,0 +1,97 @@
+// RESET - START
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 110vh;
+}
+h3 {
+  text-align: center;
+}
+// RESET - END
+
+// Variables
+$animatonTime: 200ms; // In case of change this value, it has to be changed in js as well
+
+.accordion {
+  padding: 0 15px;
+  max-width: 1000px;
+  margin: auto;
+  .accordion-item {
+    &:not(:last-of-type) {
+      border-bottom: 1px solid #b3b3b3;
+    }
+    .accordion-question {
+      display: block;
+      background-color: inherit;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 15px;
+      position: relative;
+      padding: 15px 30px 15px 0;
+      cursor: pointer;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 11px;
+        height: 11px;
+        transform: translateY(-50%) scale(1, -1);
+        right: 15px;
+        top: 50%;
+        background-image: url(/arrow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform $animatonTime;
+      }
+    }
+    .accordion-answer {
+      display: none;
+      height: 0;
+      transition: $animatonTime;
+      opacity: 0;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 15px;
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 15px;
+      }
+    }
+    &.check-answer-size {
+      position: relative;
+      .accordion-answer {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        display: block;
+      }
+    }
+    &.show-answer .accordion-answer {
+      opacity: 1;
+      position: static;
+      display: block;
+      overflow: hidden;
+    }
+    &.show-answer,
+    &.answer-displayed:not(.hide-answer) {
+      .accordion-question::after {
+        transform: translateY(-50%);
+      }
+    }
+    &.answer-displayed .accordion-answer {
+      height: auto;
+      opacity: 1;
+      position: static;
+      display: block;
+    }
+    &.hide-answer .accordion-answer {
+      opacity: 0;
+      overflow: hidden;
+    }
+  }
+}
