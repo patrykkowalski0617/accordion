@@ -18,7 +18,7 @@ const accordionInit = (animatonTime = 200) => {
     accordionItems.forEach((accordionItem) => {
       const quetionBtn = accordionItem.querySelector(".accordion-question");
 
-      quetionBtn.addEventListener("click", () => {
+      quetionBtn.addEventListener("focus", () => {
         const [answerContainer, answerContainerHeight] =
           getAnswerHeight(accordionItem);
         const displayedItem = accordion.querySelector(".answer-displayed");
